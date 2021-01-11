@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="script.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+	<header>
+		<h1 onclick="home();">Eksamen Våren 2019</h1>
+	</header>
+	<div class="menu-container">
+	 <div class="menu-button" onclick="displayContent(0)">
+	  <p>Oppgave 1</p>
+	  </div>
+     <div class="menu-button" onclick="displayContent(1), addEvent()">
+	  <p>Oppgave 2</p>
+	  </div>
+	 <div class="menu-button" onclick="displayContent(2), updateTable('homeCabin', hytteInfo)">
+	   <p>Oppgave 3</p>
+	  </div>
+	</div>
+
+	<div class="oppgave1-container oppgave-container">
+	 <div class="flex-button-container">
+	  <div class="menu-button inner-button" onclick="displayInnerContent(0)"><img src="comp/fjell1.jpg"/></div>
+	  <div class="menu-button inner-button" onclick="displayInnerContent(1)"><img src="comp/fjell2.jpg"/></div>
+	  <div class="menu-button inner-button" onclick="displayInnerContent(2)"><img src="comp/fjell3.jpg"/></div>
+	 </div>
+
+	 <div class="picture-subtext">
+	  <p>Anbefalt filformat: <span id="filformat-info"></span></p>
+	  <br>
+	  <p>Datagrafikk: <span id="datagrafikk-info"></span></p>
+	 </div>
+	
+	 <div class="reset-container">
+	  <button class="btn error" onclick="resetInnerButtons()">Return!</button>
+	 </div>
+	</div>
+
+	<div class="oppgave2-container oppgave-container">
+     <div class="main-form-container">
+      <h2>Regn ut antall piksler!</h2>
+	  <div class="form-container">
+	   <h5>Bredde:</h5>
+	   <input class="width" type="number" min="0"><label>px</label>
+	   <h5>Høyde:</h5>
+	   <input class="height" type="number" min="0"><label>px</label>
+	   <br>
+	   <button class="btn success" id="btn-oppgave2" onclick="calculateArea()">Regn ut</button>
+
+	   <p>Piksler: <span id="pixelInput"></span></p>
+	   <p>Mega Piksler: <span id="MegaPixelInput"></span></p>
+
+	   <img src="" id="areaPicture"/>
+	  </div>
+	 </div>
+	</div>
+	  	
+	<div class="oppgave3-container oppgave-container">
+	 <div class="table-container">
+	  <table id="table">
+	  </table>
+	 </div>
+	 <h2 style="width: 194px; padding: 10px; height: 50px; margin: auto;">Velg hytte rute!</h2>
+	 <div class="main-form-container">
+	  <div class="form-container">
+	   <div class="inner-form-container">
+	    <p>Velg din hytte, så velg så mange hytter du vil besøke!</p>
+		 <br>
+		<label>Din hytte: </label><select id="homeCabin" onchange="displayCabins(this.value)">	
+		</select>
+		 <label>Velg destinasjon: </label><select id="otherCabins">	
+		</select>
+		<br>
+		<button onclick="addDestination()" id="addBtn" class="btn success">Legg til</button>
+		<br>
+		<button onclick="totalLength()" id="totalBtn" class="btn success">Regn ut total</button>
+	   </div>
+	   <div class="inner-form-container">
+		<div class="inner-column">
+		  <ol id="cabinList"></ol>
+		</div>
+		<div class="inner-column">
+		 <h4>Bytt rute!</h4>
+		 <br>		  
+		 <p>velg hvilket listenummer du vil fra og med bytte</p>
+		 <br>
+		 <label>Velg: </label><select id="listSelect"></select>
+		 <button onclick="removeSelectedList()" class="btn success">Bytt</button>
+		 </div>
+		</div>
+		 <p>Total lengden er: <span id="totalLenghtOutput"></span></p>
+	     </div>	
+		</div>
+	</div>
+</body>
+</html>
